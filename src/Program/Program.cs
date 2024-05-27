@@ -26,11 +26,26 @@ namespace Full_GRASP_And_SOLID
             recipe.AddStep(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60);
             recipe.AddStep("Dejar enfriar", 60);
 
+            // Creo una variable de tipo IPrinter
             IPrinter printer;
+
+            // Creo una variable de tipo IRecipeContent
+            IRecipeContent recipeContent;
+
+            // Asigno a la variable recipeContent la instancia recipe de la clase Recipe (ésta sería mi receta)
+            recipeContent = recipe;
+
+            // Asigno a la variable printer una instancia ConsolePrinter
             printer = new ConsolePrinter();
-            printer.PrintRecipe(recipe);
+
+            // Imprimo la receta en pantalla
+            printer.PrintRecipe(recipeContent);
+
+            // Asigno a la variable printer una instancia FilePrinter
             printer = new FilePrinter();
-            printer.PrintRecipe(recipe);
+
+            // Guardo la receta en un archivo de texto
+            printer.PrintRecipe(recipeContent);
         }
 
         private static void PopulateCatalogs()
